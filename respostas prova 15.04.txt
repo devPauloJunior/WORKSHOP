@@ -24,3 +24,6 @@ where cod_cat = v_cod_cat and preco <= 100;
 update tb_produto set preco = preco * 1.05
 where cod_cat = v_cod_cat and preco > 100;
 end;
+
+
+MAIS UM POUCO DE TEXTO AQUI
