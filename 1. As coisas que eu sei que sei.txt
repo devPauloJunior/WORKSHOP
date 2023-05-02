@@ -1,0 +1,84 @@
+1. As coisas que eu sei que sei
+2. As coisas que eu sei que eu não sei
+3. As coisas que eu não sei que eu não sei
+                                                                                                                                                                                                    
+Dor: controlar o aluguel de fitas VHS, cds e dvds dos filmes de sua locadora. 
+Nome Empresa: FM Video
+Ramo: Locação de Filmes 
+Personas: Dono, Dois funcionarios(diurno/noturno)
+
+1. Você já viu algo parecido com isso em algum lugar?
+2. Você já usou esse tipo ser serviço/produto?
+		2.1 - O que você achou?
+		2.2 - me diga qual foi sua impressão do serviço/produto, antes, durante e depois da utilização
+		2.3 - Em que momento da utilização você vivienciou um desafio?
+		2.4 - Em que momento a utilização lhe proporcinou algo bom?
+
+Pixar Story Telling
+Era uma vez
+Todos os dias
+Um certo dia
+Por causa disso
+Por causa disso
+Até que finalmente
+
+Uma Dona de uma escola procurou você para falar do seguinte problema: ela precisa ter mais controle dos seus alunos nos seguintes pontos, assiduidade, comportamento e notas
+
+
+
+Personas são personagens fictícios que podemos cria para representar os diferentes tipos de usuários
+do produto/serviço.É uma ferramenta para gerar consenso no seu time do que o seu usuário está precisando e para construir funcionalidades que se adequam realmente à vida das pessoas. É uma forma de você criar empatia com o seu time de desenvolvimento, seu time de designers para com o usuário final. Com isso conseguimos ajudar o time a calçar os sapatos e sentir onde que está apertando.
+
+Veja o gráfico com quatro quadrantes. No primeiro quadrante devemos descrever quem é a pessoa, quem é o persona. No segundo quadrante devemos colocar os dados demográficos, os comportamentos, alguns hábitos que a pessoa possa ter. No terceiro quadrante descrevemos as necessidades, e o que nossa persona precisa no cenário do produto/serviço. No último quadrante, é a conclusão do estudo que estamos fazendo, devemos colocar quais são as potenciais soluções que vão se encaixar na vida dessa persona e quais vão atender suas necessidades.
+
+
+
+O pitch deve e pode tanto ser apresentado apenas verbalmente quanto ilustrado por 3 a 5 slides. Ele deve conter basicamente: a apresentação e treino. 
+
+Apresentação - elabore cada slide do pitch com base no modelo de apresentação em PowerPoint ou outra ferramente de slides.
+
+Treino - simule para verificar se está consistente. Busque apresentar para colegas e amigos, solicitando feedbacks, em especial se está atrativa despertando o interesse.
+
+
+Vamos falar sobre o golden path. Ou, como dizem aqui no Brasil, o caminho feliz. A jornada do usuário, o caminho feliz, é muito utilizado para deixar bem claro o caminho que a maioria dos usuários vão passar dentro daquela jornada. A gente precisa ser muito claro no caminho principal que o usuário vai traçar para a realização de uma determinada tarefa/serviço e você pode ter vários golden path em uma mesma jornada.
+Às vezes você quer que o usuário execute determinada tarefa ou uma outra tarefa ou outra tarefa do fluxo.
+Existe um caminho feliz para cada uma delas. Então dependendo do problema que você quer resolver você vai estabelecer um caminho feliz e priorizar suas atividades. Então basicamente o é feito é estabelecer qual é o caminho mais rápido para o usuário receber determinado valor. Com isso vamos conseguir conectar as histórias de usuário na fase de planejamento ou quais são as funcionalidades mais relevantes para eles e ai  começarmos a construir nosso produto permitindo que esse caminho feliz seja traçado. Conceitualmente, o caminho feliz ou golden path, é o caminho mais rápido que o usuário percorre para realizar determinada
+tarefa, é aquele caminho que 90% dos seus usuários, utilizando até aquela regra de Pareto, é o caminho que a maioria dos seus usuários vai traçar quando utilizar o seu produto.
+
+Então por que não começar por esse caminho
+
+quando você for construí-lo? Por isso essa é uma boa ferramenta de estratégia para você gastar menos dinheiro
+
+e ir pelo lugar menos arriscado para você entregar valor.
+
+Aqui tem o exemplo de um curso de design muito bom da Udacity.
+
+Infelizmente ele só tem inglês, mas caso você entenda a língua, recomendo fortemente que você já vá se
+
+inscrever, logo depois desse curso de UX vai fazer esse curso de product design porque ele é muito bom.
+
+Então vamos lá.
+
+Qual é o caminho feliz desse caso?
+
+É uma ferramenta de e-commerce? O que os usuários mais fazem na ferramenta de e-commerce? Basicamente,
+
+o usuário vai visitar o seu site para realizar uma pesquisa de qual produto ele quer comprar, vai visualizar
+
+o produto, provavelmente vai olhar as recomendações daquele produto e por fim ele vai comprar e vai editar
+
+os dados de compra dele com o endereço, com meios de pagamento e por aí vai.
+
+Pronto. Aí depois disso é só receber o produto.
+
+O valor está entregue. Você vê, poderia ter várias coisas.
+
+Ele poderia ter canais de contato, canais de atendimento e visualizar os produtos que são relacionados
+
+àquele produto.
+
+Mas estou preocupado com o caminho feliz.
+
+Entrei na loja e achei o meu produto, coloca no carrinho, compro, morreu o assunto, então vou priorizar
+
+as funcionalidades que primeiro vão atender a esse caminho.

@@ -1,0 +1,169 @@
+na views - return render(request, 'recipes/home.html', context={'name': 'Paulo Junior',})
+
+
+criar uma pasta na raiz - base_templates
+
+no settings - BASE_DIR / 'base_templates',
+
+colisão de nomes***
+
+criar um ambiente seguro com namespace validos.
+
+base_templates/global
+templates/nome do APP
+
+
+o framework do django ja vem configurado para ler os arquivos staticos de dentro da pasta do seu APP
+
+1. criar a pasta static no APP
+2. criar a pasta nome do APP/css
+3. no arquivo html fazer
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static 'my_app/css/style.css' %}">
+
+como não podemos deixar o css, js e as imagens só para um unico APP temos que fazer a seguinte configuração
+
+1. criar a pasta basic_statis/global/ css, js e image
+2. fazer um teste de prioridade
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'base_static/',
+]
+
+
+STATIC_ROOT = BASE_DIR / 'static'
+
+python manage.py collectstatic
+esse comando é para coletar os statics para quando formos fazer o deploy para um servidor da web o ambiente ficar mais robusto.
+
+#partials
+
+criar estrutura
+my app/ pages /index.html
+my app / partials / head.html footer.html
+
+reforçando - {%  %} escrever codigo python {{  }} exibir um resultado de codigo python
+
+No inicio
+{% include 'my app/partials/head.html' %}
+
+No final
+{% include 'my app/partials/footer.html' %}
+
+
+Model
+
+model é a mesma coisa que uma tabela no DB
+
+Uma classe era de models.Model
+
+Dentro de models temos todos os tipos de campos que podemos querer em relação com DB
+
+
+Para valores em dinheiro o melhor tipo é o DecimalField()
+price = models.DecimalField('Aqui é o Label', decimal_places=2, max_digits=8)
+
+Para tipo de dado e-mail o melhor tipo é EmailField()
+email = models.EmailField('Aqui é o Label', max=lenght=100)
+
+criar a função STR
+def __str__ (self):
+	return f'{self.title}'
+
+class ListPlans(admin.ModelAdmin):
+	list_display = (title, Type_Plan, Value)
+
+admin.site.register(Plans, ListPlans) 
+
+from .models import Plans
+
+my_plans = Plans.objects.all()
+
+context = {
+
+}
+
+
+pip install pillow
+
+
+from django.db import models
+from datetime import datetime
+from pessoas.models import Pessoa
+
+class Receita(models.Model):
+    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+    nome_receita = models.CharField(max_length=200)
+    ingredientes = models.TextField()
+    modo_preparo = models.TextField()
+    tempo_preparo = models.IntegerField()
+    rendimento = models.CharField(max_length=100)
+    categoria = models.CharField(max_length=100)
+    date_receita = models.DateTimeField(default=datetime.now, blank=True)
+    foto_receita = models.ImageField(upload_to='fotos/%d/%m/%Y', blank=True)
+    publicada models.BooleanField(default=False)
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'alurareceita/static')
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+
+<!-- ##### Best Receipe Area Start ##### -->
+<section class="best-receipe-area">
+    <div class="container">
+        <div class="row">
+            {% if receitas %}
+            {% for receita in receitas %}
+            <!-- Single Best Receipe Area -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-best-receipe-area mb-30">
+                    <img src="{% static 'img/gb-img/foto_receita.png' %}" alt=""></img>
+                        <div class="receipe-content">
+                        <a href="receita.html">
+                            <h5>{{ receita.nome_receita }}</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+from django.contrib import admin
+from .models import Receita
+
+class ListandoReceitas(admin.ModelAdmin):
+    list_display = ('id', 'nome_receita', 'categoria', 'tempo_preparo')
+    list_display_links = ('id', 'nome_receita')
+    search_fields = ('nome_receita',)
+    list_filter = ('categoria',)
+    list_per_page = 2
+
+admin.site.register(Receita, ListandoReceitas)
+
+## no admin
+class nome_da_classe1(admin.ModelAdmin):
+	...
+
+@admin.register2(nome_do_model)
+classe nome_da_clasee(admin.ModelAdmin):
+	...
+
+admin.site.resiter(nome_do_model, nome_da_classe1)
+
+
+
+upload = models.FileField(upload_to='uploads/%Y/%m/%d/')

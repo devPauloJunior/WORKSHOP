@@ -1,0 +1,164 @@
+ng ## Instalação
+npm install -g @angular/cli
+
+## lista de comandos
+ng
+ng version
+
+## novo projeto
+ng new primeiro-app
+
+## start do serviço
+ng server
+
+## estrutura
+.vscode - pasta com configurações para vscode
+src - core o source do projeto
+bowserlistrc - suporte para os navegadores
+editconfig quando formos trabalhar co equipes
+angular.jason - condigurações do angular
+karma.conf - parte de teste unitario
+packege e lock - as dependencias
+ts.comfig - configurações do typescript
+ts.config.json - onde ficam as coisas do prjeto
+ts.config.espec.json - teste unitario
+
+##pasta principal
+src - core da apliação
+app - onde ficam cadastrados nossos componentes
+assets - imagens
+envirements - variaveis de ambiente
+favicon - icone do angular
+index.html - é o primeiro arquivo HTML ou principal. Alterar para pt-br
+main.js - faz toda a parte do bootstrap do app
+polyfills - são ferramentes que podemos utizar no angular.
+style.css - css global
+teste.ts - testes unitarios
+
+##pasta app
+router - para criar as rotas entre paginas
+app.component.html no router-outlet  acontecem - apaga tudo e deixa só o router
+app.component.ts - tem a configuração do nosso componente.
+app.module.ts - onde ficam cadastrados nossos componemtes
+
+## build
+feito para converter ts para js. Não precisa se preoculpar com isso
+
+
+##componente
+import { Component, OnInit } from '@angular/core'; - import que traz todo o angular core para seu app
+ 
+@Component({ - decorator
+ selector: 'app-home', - o nome do meu app
+ templateUrl: './home.component.html', - baseado no html do nosso componente
+   styleUrls: ['./app.component.css'] -  arquivo de css do seu ambiente. Pode ser SASS ou SCSS
+})
+
+export class AppComponent {
+  public title = 'primeiro-app';
+}
+
+angular trabalha com interpolação {{ AQUI }}
+
+transformar o H1 Title em um componente
+
+## gerar um componente
+ng generate --help
+ng generate component title
+
+##title.componet.ts
+Oninti é o cliclo de vida do angular
+um construtor também
+
+colocar: public title:string = "Bem vindo"; - o typesrcipt pode ser trabalhado com tipagem 
+
+colocar a tag <app-ttile></app-ttile> dentro do app.component.ts
+
+@input ele serve para receber dados externos de outro componente
+
+***** void é sem retorno *****
+
+## utilizando bootstrap
+
+
+no arquivo angular.json em styles colocar o caminho do bootstrap: "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+toda alteração no angular.json deve ser feito um restart da aplicação logo em seguida.
+
+
+## ERROR
+
+Isso acontece porquê o projeto está configurado no modo "strict", no arquivo tsconfig.json tem uma chave chamada "strict".
+
+error TS2564: Property 'variavel' has no initializer and is not definitely assigned in the constructor.
+
+Este erro em especifico está dizendo que a variável "destino" precisa ser definida, o modo estrito obriga a você a inicializar as propriedades da classe.
+
+Então resumindo, para você contornar isso só usar essa syntax: public variavel!: string;
+
+
+## AULA DATA BINDING
+Ele permite a comunicação entre o template HTML e um componente ou mesmo entre componentes.
+
+É muito importante que o componente se comunique com o template com isso conseguimos controlar os elementos visuais do template.
+
+No componente são definidos os metadados, E o que são metadados, ou Metainformação, são dados sobre outros dados. O prefixo “Meta” vem do grego e significa “além de”. Assim Metadados são informações que acrescem aos dados e que têm como objetivo informar-nos sobre eles para tornar mais fácil a sua organização..
+
+Se lembrarmos bem os metadados definem o um seletor no componente e também o template desse componente.
+
+Com isso podemos fazer a classe do nosso componente se comunique com o template e ai que entram os DataBinding 
+
+Quando a comunicação vai do componente para o template temos os recursos de PropertBinding e String Interplation.
+
+Quando capturaramos eventos para reagir a eles a partir de métodos da classe.
+
+Essa tratativa  de comunicação que vai do template para o componentes é conhecido como EventBinding.
+
+Tanto a primeira direção quanto a segunda direçãocriam um fluxo chamado de One-Way-DataBinding ou seja é uma comunicação de mão única.
+
+Existe o Two-Way-DataBinding que é uma comunicação de mão dupla mas veremos depois.
+
+## MOCK
+Ao criarmos uma classe de palavras isso nos leva a criar o arquivo mock que contem a instâncias de objetos baseados em classe para que a possamos utilizar depois
+
+## SERVICES
+O que são serviços?
+Nada mais são do que classes comuns com objetivos bem definidos que
+visam atender a alguma necessidade específica da aplicação.
+
+Pense em serviços como sendo uma funções ou mesmo valores que podem ser definidos e compartilhados
+
+Um exemplo é se você implementar um recurso de log dentro da aplicação quiser saber quais rotas estão sendo acessadas você pode fazer isso através de um serviço.
+
+Ou se uma aplicação consome uma API, então você pode encapsular essa API com o serviço.
+
+Enfim a partir de agora tem em mente que recursos funções ou mesmo valores bem definidos com o potencial de serem reaproveitados em outros locais dentro da aplicação podem ser destacados em serviços.
+
+Os serviços podem ser injetados em três escopos diferentes.
+1. Escopo de módulo: se você se lembra bem as nossas aplicações elas são iniciadas com um módulo ROOT que é o AppMODULE que é o módulo principal da aplicação onde nós declaramos todos os componentes.
+Então nós podemos pegar o serviço e injetar diretamente no módulo fazendo com que a gente acesse aquele serviço a partir de uma instância. Ou seja em qualquer local da aplicação nós podemos trabalhar com a mesma instância daquele serviço o que é muito bacana.
+
+2. Escopo de componente e seus filhos: é quando o serviço é injetado diretamente no componente. E com isso os componentes filhos eles terão acesso a aquele serviço.
+
+3. Escopo de componente unico: é o escopo onde os filhos do componente não terão acesso a ele.
+
+
+## Singleton: é um padrão de projeto bastante conhecido da GOF (Gang of Four) onde uma classe pode ter apenas uma instância. Ele tenta garantir que a classe seja instanciada uma única vez e fornece um ponto de acesso global a ela.
+
+## Providers: é um metadado que permite com que um serviço fique disponível para o componente e para os componentes filhos desse componente. Devemos colocar a variavel denrto do construtor e inferir o tipo para que a mesma seja declarada como atributo do objeto. Então de um lado fica a variavel e do outro a classe que é importada como serviço.
+
+## Promise no Angular: é um recurso que nos permite implementar lógicas de processamento assíncrona de forma fácil. A ideia de dispararmos funções porém com o retorno dessas funções dependerão de algum processamento com latência ou seja que levará um tempo para ficar pronto. Nesse caso o retorno dessas funções será consumido de forma assíncrona porque o interpretador do Angular não vai ficar aguardando a finalização das funções para continuar a interpretar restant do codigo. É ai que podemos disparar funções assíncrona com promessas associadas a elas de tal modo que essas promessas possam ser executadas de imediato, no futro ou mesmo nnunca.
+
+
+## .then: Ele executa uma ação quando a nossa promessa estiver resolvida. Então o resolv passa a informação para o .then o que ele faz é pegar essa informação e passar por tudo que está aqui e como que
+
+## Observables: Os observáveis fornecem suporte para passar mensagens entre partes do seu aplicativo. Eles são usados com frequência no Angular e são uma técnica para manipulação de eventos, programação assíncrona e manipulação de vários valores.
+
+## @Injectable: Decorador que marca uma classe como disponível para ser fornecido e injetado como uma dependência
+
+## passagem de parametros: passar parâmetros durante a navegação entre as rotas da aplicação. Essa passagem de parâmetros é um recurso muito importante porque os parâmetros servem para configurar as tratativas de backend da nossa aplicação. Por exemplo no componente oferta nós precisamos receber um parâmetro que corresponda ao ID da oferta clicada para que com base nesse parâmetro a gente possa configurar a consulta da API de backend.
+
+## path: eles passam uma instrução que retona para o usário um ambiente. Por isso todos os path/rotas correspondem a uma assinatura única no Angular.
+
+## snapshot: Para recuperar parametros dentro dos componentes o Angular tem duas abordagens, o SNAPSHOT e o SUBSCRIBE. Vamos falar do  SNAPSHOT, ele tira digamos uma "foto" da rota permitindo acessar os parâmetros desta rota dentro do componente. Ele é utilizado na grande maioria das vezes. 
+
+## subscribe: ele fica escutando alterações na rota quando uma alteração é executada nós podemos reagir a essa mudança. O subscribe está relacionado com o paradigma de programação reativa(programação baseada em eventos)

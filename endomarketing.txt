@@ -1,0 +1,22 @@
+endomarketing
+
+rede social interna
+
+App Mundo tem mais de 5 anos
+
+Essa vaga é para qual filial?	field_which_vacancy	Listagem (texto)
+
+Alimentação
+Convênios
+Educação
+Entretenimento
+Plano de Saúde
+Plano Odontológico
+Vale Transporte
+
+Individual
+Cargo
+Filial
+Coligada
+Situação
+Geral

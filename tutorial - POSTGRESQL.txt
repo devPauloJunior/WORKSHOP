@@ -1,0 +1,3 @@
+
+## restore DB 
+psql -U user_con -d hapmed_backup -f .\hapmed_backup.dump

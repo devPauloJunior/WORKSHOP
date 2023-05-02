@@ -1,0 +1,33 @@
+public function importByCPF($cpf)
+  {
+    $out = [];
+  //   $query = \Drupal::database()->select('users_field_data', 'u');
+  //   $query->join('user__field_cpf', 'ufc', 'u.uid = ufc.entity_id');
+  //   $query->fields('u');
+  //   $query->fields('ufc');
+  //   $query->condition('ufc.field_cpf_value', $cpf, 'LIKE');
+  //   $results = $query->execute()->fetchAll();
+  //   var_dump($results);
+  //   if (empty($results) || !isset($results['field_cpf_value'])) {
+  //     return $out;
+  //   }
+  //   foreach ($results as $result) {
+  //     dump($result);
+  //  }
+   
+  //   $out = ['nome'=> $results['name'], 'cpf'=> $results['field_cpf_value']];
+    // var_dump($out);  
+    $query = \Drupal::database()->select('users_field_data', 'u');
+    $query->join('user__field_cpf', 'ufc', 'u.uid = ufc.entity_id');
+    $query->fields('u');
+    $query->fields('ufc');
+    $results = $query->execute()->fetchAll();
+    
+    foreach ($results as $result) {
+        if ($result->field_cpf_value ==  $cpf) {
+          $out = $result;
+        }
+    }
+    dump($out);
+    return $out;
+  }

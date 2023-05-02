@@ -1,0 +1,79 @@
+vscode instalar o ES7+React
+
+file > setting > extension vamos add javascript - javascriptreact;
+node JS e npm
+
+npm install -g yarn
+
+## vamos usar o executor de pacotes do node js chamdo NPX
+
+npx creat-react-app primeiro-app
+
+a pasta principal de codigo é a SRC(source) em APP.JS
+
+editar o arquivo app.js
+
+<h1>Ola FRont</h1>
+
+veja que ele compila toda vez que você faz uma alteração.
+
+node_modules: onde ficam as dependencias os pacotes
+
+public: assets estaticos e html de inicialização
+
+src: onde vamos programar nosso apps e os hooks
+
+dois arquivos muito importantes:
+
+src/indes.js arquivo de inicialização do React
+
+src/app.js: componente pricipal da aplicação 
+
+package.json: onde são registrados as dependeicias do projeto
+
+
+se a gente tirar o div do app.js vai aconecer um erro pq o react exige que as suas tags sejam envoltas um um conainer é uma egigencia do react
+
+colocar uma class="teste' no tag não pode erros no console ai colocamos className="teste"
+
+ ## templates 
+interpolar é inserir (palavras ou frases) num texto, para alterar ou adulterar o sentido, ou para completá-lo ou esclarecê-lo.
+
+
+## EVENTOS
+Alguns exemplosde eventos são: handleSubmit, handleClick 
+
+Todos os eventos são gerenciados por um processo chamado event ou simplemente "e". Ele está implicito e podemos ver como ele se comporta.
+const = handleMyEvent = (e) => {
+	console.log(e)
+}
+
+
+## Imagens
+existem duas formas de se trabalhar com imagens no React
+Public onde não precisamos colocar muita informação no scr
+pasta assets que precisamos importar.
+Para importar devemos fazer
+import Nome-da-Imagem from './o_proprio_arquivo'
+
+na public imagens e arquivos que sei que não vão mudar
+na assets aqueles arquivos que podem sofre alterações.
+
+linha 8 a 10 do index.css
+color: #aaaaaa;
+
+
+## memory leak - Em ciência da computação vazamento de memória ou memory leak é um fenômeno que ocorre quando um programa de computador gerencia incorretamente alocações de memória de maneira que certa memória não é liberada quando não é mais necessária.
+
+## autenticação: nossa autenticação será baseada em hooks. Com o arquivo useAuthentication.js
+
+## usuários: como estamos trabalhnado com o FireBase, é bom entender que os usuários não ficam salvos no banco de dados como nossos posts do blog ficam. Eles ficam salvos no serviço de autenticação do FireBase. Por isso não usamos o DB que foi criado nas configurações.
+
+## explicando a logica do CRIAR POST: os hooks foram feitos isalados, dessa forma podemos reaproveitar para outras entidades, se houver a necessidade. Criamos o useInsertDocument.js. Além dos hooks tradicionais utilizamos o useReducer, utilizamos o useState para casos simples e o useReducer para casos complexos. O useReducer é um hook do React que permite gerenciar o estado de um componente de forma semelhante ao reducer do Redux. Ele é útil quando você precisa gerenciar um estado mais complexo ou compartilhado por vários componentes em sua aplicação. O primeiro parâmetro é uma função que recebe o estado atual e retorna o próximo estado. Ele trabalha com switch de dados. O segundo parâmetro é o estado inicial ou o valor inicial do estado do componente. Algumas aplicações contador, lista de tarefas, formulário de nome e e-mail, formulário de busca entre outros.
+Utilizamos também as funções do firebase: collection (o firebase não trabalha com tabelas, é com cooleção de dados), addDoc(faz o insert do dados no firebase) e o timestamp(marca o horario de criação). O initialState é o estado inicial do nosso reducer(inicia com loading e error como null). Agora a mudança de estado do reducer que é o insertReducer você passa o estado e a ação a ser feita.
+
+## Parte 2: Temos também a exportação do nosso: useInsertDocument, nele iniciamos recebendo a  docCollection, em seguida iniciamos o hook do reducer com o response e o dispatch. Depois temos o nosso memory leak. A função checkCancelBeforeDispatch serve para verificar se ainda tem algo cancelado. Agora o newDocument vai inserir as informações no firebase, temos o spred do documento(...document), e pegamos a hora atual da criação(createdAt: Timestamp.now())
+
+## Parte 3: criamos uma função para acompanhar a inserção(insertDocument) ela fica aguardando o addDoc passando a collection com os parametros do db e o docCollection que vai validar a nossa coleção no firebase. E aí se estiver tudo certo ele inseri as informações com o newDocument. e ai como temos uma ação acontecendo temos que dar um checkCancelBeforeDispatch, ele vê o tipo da ação.
+
+## Parte 4: nosso reducer vai comportar os casos de doc com o loading, inseridos e o erro. Faremos os cases com switch. Se não tiver nenhum action reorna o state. Por fim temos o retorno do insertDocument e da resposta e um useEffect para evitar o memory leak.\  

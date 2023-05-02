@@ -1,0 +1,26 @@
+Com relação a descrição do processo de requisitos, conforme (PFLEEGER, 2004), sua sequência é:
+
+marquei: Descrição do problema, análise do problema, prototipação e testes, e documentação e validação.
+
+Em Engenharia de Software os custos variam e dependem do processo e do tipo de sistema a ser desenvolvido, além dos atributos (imediatismo, performance, plataforma, segurança, disponibilidade, etc). A distribuição do custo depende:
+
+marquei: Da abrangência e tipo do software que será desenvolvido.
+
+Pressman (1995, p. 179) inclui como elementos de um sistema computacional: Software, Hardware, Pessoas, Banco de Dados, Documentação e Procedimentos. Esses elementos interagem uns com os outros para transformar informações. Assim, para que um sistema computacional cumpra realmente seus objetivos, é importante não apenas se preocupar com a construção de seus elementos, mas também é fundamental que todos os elementos estejam integrados entre si de forma efetiva.
+
+marquei: Procedimentos: os passos que definem o uso específico de cada elemento do sistema ou o contexto processual em que o sistema reside
+
+
+Elaborar um stored procedure que receba como parâmetro a descrição de uma categoria e atualize os preços dos produtos. Os produtos com preço até 100 reais serão reajustados em 3%, os demais terão aumento de 5%. 
+
+marquei B:
+create or replace procedure
+prc_atualizar_produtos(x varchar) as
+v_cod_cat number;
+begin
+select cod_cat into v_cod_cat from tb_categoria where descricao = x;
+update tb_produto set preco = preco * 1.03
+where cod_cat = v_cod_cat and preco <= 100;
+update tb_produto set preco = preco * 1.05
+where cod_cat = v_cod_cat and preco > 100;
+end;

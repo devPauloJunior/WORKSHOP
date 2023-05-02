@@ -1,0 +1,17 @@
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+
+$userId = \Drupal::currentUser()->id();
+        // $account = Drupal\Core\Session\AccountInterface::getDisplayName();
+        $userList = User::load( $userId );
+        // dpm($userList->$this->get('name')->getValue()[0][value]);
+        $account = 'Teste';
+        return [
+            'message' => "Novo modulo teste",
+            'user' => $userId,
+            'userList' => $userList,
+            'account' => $account];
+    }

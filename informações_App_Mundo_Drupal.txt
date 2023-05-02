@@ -1,0 +1,18 @@
+92572448300
+
+SELECT "node_field_data"."created" AS "node_field_data_created", "node_field_data"."nid" AS "nid", "users_field_data_node_field_data"."uid" AS "users_field_data_node_field_data_uid"
+FROM
+{node_field_data} "node_field_data"
+INNER JOIN {users_field_data} "users_field_data_node_field_data" ON node_field_data.uid = users_field_data_node_field_data.uid
+WHERE ("node_field_data"."type" IN ('benefit')) AND ("node_field_data"."status" = '1')
+ORDER BY "node_field_data_created" DESC NULLS LAST
+LIMIT 50 OFFSET 0
+
+	
+SELECT "node_field_data"."created" AS "node_field_data_created", "node_field_data"."nid" AS "nid", "users_field_data_node_field_data"."uid" AS "users_field_data_node_field_data_uid"
+FROM
+{node_field_data} "node_field_data"
+INNER JOIN {users_field_data} "users_field_data_node_field_data" ON node_field_data.uid = users_field_data_node_field_data.uid
+WHERE ("node_field_data"."type" IN ('about_us')) AND ("node_field_data"."status" = '1')
+ORDER BY "node_field_data_created" DESC NULLS LAST
+LIMIT 50 OFFSET 0
